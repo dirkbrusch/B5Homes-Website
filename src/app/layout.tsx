@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/hero/front-view.jpg",
+        url: "/images/hero/front-view.webp",
         width: 1200,
         height: 630,
         alt: "B5 Homes — charming brick home surrounded by lush green forest in Greenville, SC",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: "B5 Homes | Private Forest Retreat in Greenville, SC",
     description:
       "3-bedroom vacation home on 35,000 sq ft of private forest. Book on Airbnb or VRBO.",
-    images: ["/images/hero/front-view.jpg"],
+    images: ["/images/hero/front-view.webp"],
   },
   robots: {
     index: true,
@@ -99,12 +99,12 @@ const jsonLd = {
     "Premium 3-bedroom vacation rental home nestled in a private forest in Greenville, SC. 35,000 sq ft private woodland, 15 minutes from downtown Greenville and Falls Park. Superhost rated with 5-star reviews. Fully equipped kitchen, screened porch, playground, free Wi-Fi and parking.",
   url: SITE_URL,
   image: [
-    `${SITE_URL}/images/hero/front-view.jpg`,
-    `${SITE_URL}/images/interior/living-room.jpg`,
-    `${SITE_URL}/images/interior/kitchen-dining.jpeg`,
-    `${SITE_URL}/images/interior/porch.jpg`,
-    `${SITE_URL}/images/rooms/master-bedroom.jpeg`,
-    `${SITE_URL}/images/hero/aerial.jpg`,
+    `${SITE_URL}/images/hero/front-view.webp`,
+    `${SITE_URL}/images/interior/living-room.webp`,
+    `${SITE_URL}/images/interior/kitchen-dining.webp`,
+    `${SITE_URL}/images/interior/porch.webp`,
+    `${SITE_URL}/images/rooms/master-bedroom.webp`,
+    `${SITE_URL}/images/hero/aerial.webp`,
   ],
   address: {
     "@type": "PostalAddress",

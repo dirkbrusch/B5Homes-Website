@@ -108,7 +108,7 @@ export default function AboutGreenvillePage() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="relative aspect-video overflow-hidden rounded-3xl shadow-2xl">
             <Image
-              src="/images/hero/falls-park.jpg"
+              src="/images/hero/falls-park.webp"
               alt="Falls Park on the Reedy with waterfall in downtown Greenville, South Carolina"
               fill
               className="object-cover"

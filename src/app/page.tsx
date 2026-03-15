@@ -160,7 +160,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero/front-view.jpg"
+            src="/images/hero/front-view.webp"
             alt="B5 Homes — charming brick home surrounded by lush green trees"
             fill
             className="object-cover object-center"
@@ -304,7 +304,7 @@ export default function HomePage() {
               className="w-full aspect-video"
               controls
               preload="metadata"
-              poster="/images/interior/porch.jpg"
+              poster="/images/interior/porch.webp"
             >
               <source src="/videos/property-tour.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -388,7 +388,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl">
                 <Image
-                  src="/images/interior/porch-full.jpg"
+                  src="/images/interior/porch-full.webp"
                   alt="Screened porch with comfortable seating and forest views"
                   fill
                   className="object-cover"
@@ -475,12 +475,12 @@ export default function HomePage() {
           </div>
           <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { src: "/images/interior/living-room.jpg", alt: "Spacious living room with sectional sofa and fireplace", label: "Living Room" },
-              { src: "/images/interior/kitchen-dining.jpeg", alt: "Open-concept kitchen and dining area", label: "Kitchen & Dining" },
-              { src: "/images/rooms/master-bedroom.jpeg", alt: "Master bedroom with queen bed and premium linens", label: "Master Bedroom" },
-              { src: "/images/rooms/guest-bedroom.jpeg", alt: "Guest bedroom with queen bed and yellow accents", label: "Guest Bedroom" },
-              { src: "/images/interior/porch-seating.jpg", alt: "Screened porch with comfortable seating area", label: "Screened Porch" },
-              { src: "/images/exterior/front.jpg", alt: "Front view of brick ranch home surrounded by trees", label: "Exterior" },
+              { src: "/images/interior/living-room.webp", alt: "Spacious living room with sectional sofa and fireplace", label: "Living Room" },
+              { src: "/images/interior/kitchen-dining.webp", alt: "Open-concept kitchen and dining area", label: "Kitchen & Dining" },
+              { src: "/images/rooms/master-bedroom.webp", alt: "Master bedroom with queen bed and premium linens", label: "Master Bedroom" },
+              { src: "/images/rooms/guest-bedroom.webp", alt: "Guest bedroom with queen bed and yellow accents", label: "Guest Bedroom" },
+              { src: "/images/interior/porch-seating.webp", alt: "Screened porch with comfortable seating area", label: "Screened Porch" },
+              { src: "/images/exterior/front.webp", alt: "Front view of brick ranch home surrounded by trees", label: "Exterior" },
             ].map((img) => (
               <div
                 key={img.label}
@@ -790,14 +790,12 @@ export default function HomePage() {
               Check Availability
               <ArrowRight className="ml-2 h-4 w-4" />
             </LinkButton>
-            <LinkButton
+            <a
               href="/contact"
-              variant="outline"
-              size="lg"
-              className="cursor-pointer border-2 border-white/60 text-white hover:bg-white/15 hover:border-white px-10 rounded-xl transition-all duration-300 font-sans"
+              className="inline-flex items-center justify-center h-9 gap-1.5 px-10 rounded-xl border-2 border-white/60 text-white font-sans font-medium text-sm transition-all duration-300 hover:bg-white/15 hover:border-white"
             >
               Contact Us
-            </LinkButton>
+            </a>
           </div>
         </div>
       </section>

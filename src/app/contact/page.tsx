@@ -94,7 +94,7 @@ export default function ContactPage() {
               {/* Property Image */}
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
                 <Image
-                  src="/images/exterior/front.jpg"
+                  src="/images/exterior/front.webp"
                   alt="B5 Homes property at 5 Oak Glen Ct, Greenville"
                   fill
                   className="object-cover"

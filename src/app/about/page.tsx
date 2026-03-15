@@ -73,7 +73,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="relative aspect-[3/2] overflow-hidden rounded-3xl shadow-2xl">
             <Image
-              src="/images/exterior/front.jpg"
+              src="/images/exterior/front.webp"
               alt="B5 Homes - charming brick ranch home surrounded by mature trees"
               fill
               className="object-cover"
@@ -149,31 +149,37 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-          <h2 className="font-serif text-3xl font-bold sm:text-4xl">
+      <section className="relative overflow-hidden py-28 lg:py-36">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-nature/90" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_60%_40%_at_30%_50%,oklch(0.72_0.12_85),transparent)]" />
+        </div>
+
+        <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">
+            Your Stay Awaits
+          </p>
+          <h2 className="mt-4 font-serif text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-5xl">
             Come Be Our Guest
           </h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
+          <p className="mx-auto mt-6 max-w-xl font-sans text-primary-foreground/80 leading-relaxed">
             Experience the warmth and comfort that makes B5 Homes special.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <LinkButton
               href="/booking"
               size="lg"
-              className="cursor-pointer bg-warm text-warm-foreground hover:bg-warm/90 hover:shadow-lg hover:shadow-warm/20 px-8 rounded-xl transition-all duration-300"
+              className="cursor-pointer bg-white text-primary hover:bg-white/90 hover:shadow-lg px-10 rounded-xl transition-all duration-300 font-sans font-semibold"
             >
               Book Your Stay
               <ArrowRight className="ml-2 h-4 w-4" />
             </LinkButton>
-            <LinkButton
+            <a
               href="/contact"
-              variant="outline"
-              size="lg"
-              className="cursor-pointer rounded-xl border-border/60 hover:border-warm/30 hover:bg-warm/5 transition-all duration-300"
+              className="inline-flex items-center justify-center h-9 gap-1.5 px-10 rounded-xl border-2 border-white/60 text-white font-sans font-medium text-sm transition-all duration-300 hover:bg-white/15 hover:border-white"
             >
               Get in Touch
-            </LinkButton>
+            </a>
           </div>
         </div>
       </section>
