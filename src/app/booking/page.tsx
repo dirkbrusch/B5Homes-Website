@@ -261,7 +261,7 @@ export default function BookingPage() {
             </p>
             <LinkButton
               href="/contact"
-              className="mt-5 cursor-pointer rounded-xl bg-primary hover:bg-primary/90 transition-all duration-300"
+              className="mt-5 cursor-pointer rounded-xl bg-warm text-white hover:bg-warm/90 hover:shadow-lg hover:shadow-warm/20 transition-all duration-300"
             >
               Contact Us
               <ArrowRight className="ml-2 h-4 w-4" />

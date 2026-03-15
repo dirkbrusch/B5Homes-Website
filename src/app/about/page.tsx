@@ -46,23 +46,21 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-background to-background" />
-        <div className="absolute top-20 right-[15%] h-64 w-64 rounded-full bg-warm/5 blur-3xl" />
-        <div className="absolute bottom-20 left-[10%] h-48 w-48 rounded-full bg-nature/5 blur-3xl" />
+      <section className="relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-20 bg-gradient-to-b from-primary via-primary/90 to-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_oklch(0.55_0.14_145_/_15%),_transparent_70%)]" />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-warm/20 bg-warm/5 px-4 py-1.5 text-sm">
-              <Sparkles className="h-3.5 w-3.5 text-warm" />
-              <span className="text-xs font-medium uppercase tracking-wider text-warm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm backdrop-blur-sm">
+              <Sparkles className="h-3.5 w-3.5 text-amber-200" />
+              <span className="text-xs font-medium uppercase tracking-wider text-white/90">
                 Our Story
               </span>
             </div>
-            <h1 className="mt-8 font-serif text-4xl font-bold sm:text-5xl lg:text-6xl">
+            <h1 className="mt-8 font-serif text-4xl font-bold text-white drop-shadow-md sm:text-5xl lg:text-6xl">
               Welcome to B5 Homes
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-6 text-lg leading-relaxed text-white/70 max-w-2xl mx-auto">
               A family&apos;s passion for hospitality, brought to life in the
               heart of Greenville&apos;s beautiful forest landscape.
             </p>

@@ -794,7 +794,7 @@ export default function HomePage() {
               href="/contact"
               variant="outline"
               size="lg"
-              className="cursor-pointer border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-10 rounded-xl transition-all duration-300 font-sans"
+              className="cursor-pointer border-2 border-white/60 text-white hover:bg-white/15 hover:border-white px-10 rounded-xl transition-all duration-300 font-sans"
             >
               Contact Us
             </LinkButton>
