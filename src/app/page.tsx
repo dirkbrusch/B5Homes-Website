@@ -20,9 +20,28 @@ import {
   Bike,
   Footprints,
   ExternalLink,
+  Award,
+  TrendingUp,
+  Heart,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { LinkButton } from "@/components/link-button";
+
+function AirbnbLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 448 512" className={className} fill="currentColor">
+      <path d="M224 373.1c-25.2-31.7-40.1-59.4-45-83.2-22.6-88 112.6-88 90.1 0-5.5 24.3-20.3 51.9-45.1 83.2zm138.2 73.2c-42.1 18.3-83.7-10.9-119.3-50.5 103.9-130.1 46.1-200.5-.1-200.5-46.1 0-103.9 70.4-.1 200.5-35.5 39.6-77.2 68.7-119.2 50.5-52.6-22.7-40.4-108.6 0-199.7C178.9 33.5 243.2 0 295.6 0c52.3 0 116.6 33.5 171.9 196.6 40.5 91.1 52.7 177 .1 199.7z" />
+    </svg>
+  );
+}
+
+function VrboLogo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M2.5 4.5L5.5 16h1.2l2.3-8.5L11.3 16h1.2l3-11.5h-1.8l-2 8.2L9.5 4.5H8.3L6.1 12.7l-2-8.2H2.5zm12 0L17.5 16h1.2l3-11.5h-1.8l-2 8.2-2.2-8.2h-1.2z" />
+    </svg>
+  );
+}
 
 const features = [
   {
@@ -63,7 +82,7 @@ const features = [
   },
 ];
 
-const reviews = [
+const airbnbReviews = [
   {
     name: "Audrey",
     location: "Scottsdale, AZ",
@@ -88,37 +107,40 @@ const reviews = [
     excerpt:
       "Clean house with a sweet screened porch, perfect for an extended stay.",
   },
+];
+
+const vrboReviews = [
   {
-    name: "Tyler",
-    location: "Somerset, KY",
+    name: "Gina R.",
+    location: "Greenville Area",
+    date: "August 2025",
+    rating: 10,
+    excerpt:
+      "Great location, easy to find. House was clean, nicely appointed and a very comfortable place to land. I'd definitely rent this home again.",
+  },
+  {
+    name: "Troy H.",
+    location: "Verified Traveler",
     date: "May 2025",
-    rating: 5,
+    rating: 10,
     excerpt:
-      "Great location, very clean with comfortable beds and a wonderful screened porch.",
+      "Loved the home and area. Great home for our stay.",
   },
   {
-    name: "Natalie",
-    location: "Saint Michael, MN",
-    date: "March 2025",
-    rating: 5,
+    name: "Mary S.",
+    location: "Verified Traveler",
+    date: "May 2025",
+    rating: 10,
     excerpt:
-      "Perfect for family stays with comfortable dining chairs for family dinners together.",
-  },
-  {
-    name: "Sam",
-    location: "Catonsville, MD",
-    date: "January 2025",
-    rating: 5,
-    excerpt:
-      "Amazing stay with everything well-stocked and a very responsive host.",
+      "Enjoyed our stay. Quiet and peaceful — exactly what we were looking for.",
   },
 ];
 
 const stats = [
-  { value: "4.86", label: "Guest Rating", icon: Star },
-  { value: "103+", label: "Reviews", icon: MessageSquare },
+  { value: "4.86", label: "Airbnb Rating", icon: Star },
+  { value: "9.8", label: "VRBO Rating", icon: Star },
+  { value: "207+", label: "Total Reviews", icon: MessageSquare },
   { value: "Super", label: "Host Status", icon: Shield },
-  { value: "15 min", label: "To Downtown", icon: Clock },
 ];
 
 const nearbyPlaces = [
@@ -490,67 +512,249 @@ export default function HomePage() {
             <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl lg:text-5xl">
               What Our Guests Say
             </h2>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-warm/20 bg-warm/5 px-5 py-2">
-              <Star className="h-4 w-4 fill-gold text-gold" />
-              <span className="font-sans text-sm font-semibold">4.86</span>
-              <span className="font-sans text-sm text-muted-foreground">
-                from 103+ Reviews on{" "}
-                <a
-                  href="https://www.airbnb.de/h/b5homes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-warm underline underline-offset-2 hover:text-warm/80 transition-colors"
-                >
-                  Airbnb
-                </a>
-              </span>
-            </div>
+            <p className="mt-5 font-sans text-muted-foreground leading-relaxed">
+              Consistently top-rated across both major booking platforms
+            </p>
           </div>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <Card
-                key={review.name}
-                className="group border border-border/50 bg-card transition-all duration-500 hover:shadow-xl hover:shadow-nature/5"
-              >
-                <CardContent className="p-7">
-                  <div className="flex items-center gap-1">
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-3.5 w-3.5 fill-gold text-gold"
-                      />
-                    ))}
-                  </div>
-                  <p className="mt-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
-                    {review.excerpt}
-                  </p>
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="h-9 w-9 rounded-full bg-nature/10 flex items-center justify-center">
-                      <span className="font-serif text-sm font-bold text-nature">
-                        {review.name[0]}
-                      </span>
+
+          {/* Platform Rating Overview */}
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {/* Airbnb Ratings */}
+            <Card className="group relative overflow-hidden border-0 bg-gradient-to-b from-card to-muted/10 transition-all duration-500 hover:shadow-xl hover:shadow-[#FF5A5F]/5">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF5A5F] to-[#FF385C]" />
+              <CardContent className="p-7 lg:p-8">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FF5A5F]/10">
+                      <AirbnbLogo className="h-6 w-6 text-[#FF5A5F]" />
                     </div>
                     <div>
-                      <p className="font-sans text-sm font-semibold">
-                        {review.name}
-                      </p>
-                      <p className="font-sans text-xs text-muted-foreground">
-                        {review.location} &middot; {review.date}
-                      </p>
+                      <h3 className="font-serif text-lg font-bold">Airbnb</h3>
+                      <p className="text-xs text-muted-foreground">103+ reviews</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <div className="text-right">
+                    <div className="flex items-center gap-1.5">
+                      <Star className="h-5 w-5 fill-[#FF5A5F] text-[#FF5A5F]" />
+                      <span className="font-serif text-2xl font-bold">4.86</span>
+                    </div>
+                    <p className="text-[11px] text-muted-foreground">out of 5</p>
+                  </div>
+                </div>
+
+                {/* Badges */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5A5F]/8 px-3 py-1 text-xs font-medium text-[#FF5A5F]">
+                    <Shield className="h-3 w-3" />
+                    Superhost
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5A5F]/8 px-3 py-1 text-xs font-medium text-[#FF5A5F]">
+                    <Heart className="h-3 w-3" />
+                    Guest Favorite
+                  </span>
+                </div>
+
+                {/* Category Ratings */}
+                <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5">
+                  {[
+                    { label: "Check-in", score: "5.0" },
+                    { label: "Communication", score: "5.0" },
+                    { label: "Accuracy", score: "4.9" },
+                    { label: "Location", score: "4.9" },
+                    { label: "Cleanliness", score: "4.8" },
+                    { label: "Value", score: "4.8" },
+                  ].map((cat) => (
+                    <div key={cat.label} className="flex items-center justify-between gap-2">
+                      <span className="text-xs text-muted-foreground">{cat.label}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className="h-1.5 w-16 rounded-full bg-muted overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-[#FF5A5F]"
+                            style={{ width: `${(parseFloat(cat.score) / 5) * 100}%` }}
+                          />
+                        </div>
+                        <span className="text-xs font-semibold w-6 text-right">{cat.score}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* VRBO Ratings */}
+            <Card className="group relative overflow-hidden border-0 bg-gradient-to-b from-card to-muted/10 transition-all duration-500 hover:shadow-xl hover:shadow-[#3B5FC0]/5">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B5FC0] to-[#2B4FA0]" />
+              <CardContent className="p-7 lg:p-8">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#3B5FC0]/10">
+                      <VrboLogo className="h-7 w-7 text-[#3B5FC0]" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-lg font-bold">VRBO</h3>
+                      <p className="text-xs text-muted-foreground">104 verified reviews</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center gap-1.5">
+                      <Star className="h-5 w-5 fill-[#3B5FC0] text-[#3B5FC0]" />
+                      <span className="font-serif text-2xl font-bold">9.8</span>
+                    </div>
+                    <p className="text-[11px] text-muted-foreground">out of 10</p>
+                  </div>
+                </div>
+
+                {/* Badges */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3B5FC0]/8 px-3 py-1 text-xs font-medium text-[#3B5FC0]">
+                    <Award className="h-3 w-3" />
+                    Loved by Guests
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3B5FC0]/8 px-3 py-1 text-xs font-medium text-[#3B5FC0]">
+                    <TrendingUp className="h-3 w-3" />
+                    Top 10% in Area
+                  </span>
+                </div>
+
+                {/* Category Ratings */}
+                <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5">
+                  {[
+                    { label: "Listing Accuracy", score: "10.0" },
+                    { label: "Check-in", score: "9.8" },
+                    { label: "Communication", score: "9.8" },
+                    { label: "Location", score: "9.8" },
+                    { label: "Cleanliness", score: "9.6" },
+                    { label: "Overall", score: "9.8" },
+                  ].map((cat) => (
+                    <div key={cat.label} className="flex items-center justify-between gap-2">
+                      <span className="text-xs text-muted-foreground">{cat.label}</span>
+                      <div className="flex items-center gap-1.5">
+                        <div className="h-1.5 w-16 rounded-full bg-muted overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-[#3B5FC0]"
+                            style={{ width: `${(parseFloat(cat.score) / 10) * 100}%` }}
+                          />
+                        </div>
+                        <span className="text-xs font-semibold w-6 text-right">{cat.score}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
-          <div className="mt-12 text-center">
+
+          {/* Review Cards — Airbnb */}
+          <div className="mt-14">
+            <div className="flex items-center gap-2 mb-6">
+              <AirbnbLogo className="h-4 w-4 text-[#FF5A5F]" />
+              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                Airbnb Reviews
+              </h3>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {airbnbReviews.map((review) => (
+                <Card
+                  key={review.name}
+                  className="group border border-border/50 bg-card transition-all duration-500 hover:shadow-xl hover:shadow-nature/5"
+                >
+                  <CardContent className="p-7">
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: review.rating }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-3.5 w-3.5 fill-[#FF5A5F] text-[#FF5A5F]"
+                        />
+                      ))}
+                    </div>
+                    <p className="mt-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
+                      {review.excerpt}
+                    </p>
+                    <div className="mt-6 flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-full bg-[#FF5A5F]/10 flex items-center justify-center">
+                        <span className="font-serif text-sm font-bold text-[#FF5A5F]">
+                          {review.name[0]}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="font-sans text-sm font-semibold">
+                          {review.name}
+                        </p>
+                        <p className="font-sans text-xs text-muted-foreground">
+                          {review.location} &middot; {review.date}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Review Cards — VRBO */}
+          <div className="mt-10">
+            <div className="flex items-center gap-2 mb-6">
+              <VrboLogo className="h-4 w-4 text-[#3B5FC0]" />
+              <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                VRBO Reviews
+              </h3>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {vrboReviews.map((review) => (
+                <Card
+                  key={review.name}
+                  className="group border border-border/50 bg-card transition-all duration-500 hover:shadow-xl hover:shadow-nature/5"
+                >
+                  <CardContent className="p-7">
+                    <div className="flex items-center gap-1.5">
+                      <Star className="h-3.5 w-3.5 fill-[#3B5FC0] text-[#3B5FC0]" />
+                      <span className="text-sm font-semibold text-[#3B5FC0]">{review.rating}/10</span>
+                      <span className="text-xs text-muted-foreground">Excellent</span>
+                    </div>
+                    <p className="mt-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
+                      {review.excerpt}
+                    </p>
+                    <div className="mt-6 flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-full bg-[#3B5FC0]/10 flex items-center justify-center">
+                        <span className="font-serif text-sm font-bold text-[#3B5FC0]">
+                          {review.name[0]}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="font-sans text-sm font-semibold">
+                          {review.name}
+                        </p>
+                        <p className="font-sans text-xs text-muted-foreground">
+                          {review.location} &middot; {review.date}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Buttons for Both Platforms */}
+          <div className="mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://www.airbnb.de/h/b5homes"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-warm px-6 py-3 font-sans font-medium text-white transition-all duration-300 hover:bg-warm/90 hover:shadow-lg"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#FF5A5F] px-6 py-3 font-sans font-medium text-white transition-all duration-300 hover:bg-[#E04E52] hover:shadow-lg hover:shadow-[#FF5A5F]/20"
             >
-              Read All Reviews on Airbnb
+              <AirbnbLogo className="h-4 w-4" />
+              All Reviews on Airbnb
+              <ExternalLink className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.vrbo.com/2120967"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#3B5FC0] px-6 py-3 font-sans font-medium text-white transition-all duration-300 hover:bg-[#2E4FA0] hover:shadow-lg hover:shadow-[#3B5FC0]/20"
+            >
+              <VrboLogo className="h-4 w-4" />
+              All Reviews on VRBO
               <ExternalLink className="h-4 w-4" />
             </a>
           </div>

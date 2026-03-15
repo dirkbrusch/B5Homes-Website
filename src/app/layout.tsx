@@ -121,8 +121,8 @@ const jsonLd = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.86",
-    reviewCount: "103",
+    ratingValue: "4.93",
+    reviewCount: "207",
     bestRating: "5",
   },
   amenityFeature: [
