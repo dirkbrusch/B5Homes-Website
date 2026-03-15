@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, Maximize2, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/theme-provider";
 
 const categories = [
   {
@@ -90,6 +91,7 @@ const allImages = categories.flatMap((cat) =>
 );
 
 export default function GalleryPage() {
+  const { theme } = useTheme();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -144,22 +146,21 @@ export default function GalleryPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-background to-background" />
-        <div className="absolute top-20 right-[20%] h-48 w-48 rounded-full bg-gold/5 blur-3xl" />
+      <section className="relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-20 bg-gradient-to-b from-primary via-primary/90 to-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_oklch(0.55_0.14_145_/_15%),_transparent_70%)]" />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-4 py-1.5 text-sm">
-              <Camera className="h-3.5 w-3.5 text-gold" />
-              <span className="text-xs font-medium uppercase tracking-wider text-gold-foreground">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm backdrop-blur-sm">
+              <Camera className="h-3.5 w-3.5 text-amber-200" />
+              <span className="text-xs font-medium uppercase tracking-wider text-white/90">
                 Gallery
               </span>
             </div>
-            <h1 className="mt-8 font-serif text-4xl font-bold sm:text-5xl lg:text-6xl">
+            <h1 className="mt-8 font-serif text-4xl font-bold text-white drop-shadow-md sm:text-5xl lg:text-6xl">
               Photo Gallery
             </h1>
-            <p className="mt-5 text-muted-foreground leading-relaxed">
+            <p className="mt-5 text-white/70 leading-relaxed">
               Explore our home through {allImages.length} photos across{" "}
               {categories.length} rooms and spaces
             </p>
@@ -168,7 +169,14 @@ export default function GalleryPage() {
       </section>
 
       {/* Category Filter */}
-      <section className="sticky top-20 z-30 border-b glass">
+      <section
+        className="sticky top-20 z-30 border-b"
+        style={{
+          background: theme === "dark" ? "oklch(0.17 0.012 155 / 97%)" : "oklch(0.99 0.003 145 / 97%)",
+          backdropFilter: "blur(24px) saturate(180%)",
+          WebkitBackdropFilter: "blur(24px) saturate(180%)",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex gap-2 overflow-x-auto py-4 scrollbar-none">
             <Button
