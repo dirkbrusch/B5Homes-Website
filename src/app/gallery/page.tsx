@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, Maximize2, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -132,6 +132,28 @@ export default function GalleryPage() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
+  // Touch swipe support for lightbox
+  const touchStartX = useRef<number | null>(null);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStartX.current === null) return;
+      const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+      const minSwipe = 50;
+      if (deltaX < -minSwipe) {
+        goNext();
+      } else if (deltaX > minSwipe) {
+        goPrev();
+      }
+      touchStartX.current = null;
+    },
+    [goNext, goPrev]
+  );
+
   useEffect(() => {
     if (lightboxIndex !== null) {
       document.body.style.overflow = "hidden";
@@ -247,6 +269,8 @@ export default function GalleryPage() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md"
           onClick={closeLightbox}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           role="dialog"
           aria-modal="true"
           aria-label="Image lightbox"

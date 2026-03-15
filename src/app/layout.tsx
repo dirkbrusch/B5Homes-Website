@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClickTracker } from "@/components/click-tracker";
+import { StickyCTA } from "@/components/sticky-cta";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -120,8 +121,8 @@ const jsonLd = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "25",
+    ratingValue: "4.86",
+    reviewCount: "103",
     bestRating: "5",
   },
   amenityFeature: [
@@ -252,6 +253,7 @@ export default function RootLayout({
           <ClickTracker />
           <Header />
           <main>{children}</main>
+          <StickyCTA />
           <Footer />
         </ThemeProvider>
       </body>

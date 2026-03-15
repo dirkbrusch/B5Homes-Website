@@ -13,6 +13,10 @@ import {
   Shield,
   Clock,
   CreditCard,
+  XCircle,
+  Zap,
+  Lock,
+  MessageCircle,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { LinkButton } from "@/components/link-button";
@@ -144,6 +148,39 @@ export default function BookingPage() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Flexible Booking */}
+      <section className="pb-16 lg:pb-24">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <Card className="border border-border/50 bg-card overflow-hidden">
+            <CardContent className="p-8 lg:p-10">
+              <div className="text-center mb-8">
+                <h2 className="font-serif text-2xl font-bold sm:text-3xl">
+                  Flexible Booking
+                </h2>
+                <p className="mt-3 text-muted-foreground leading-relaxed">
+                  Book with confidence on either platform
+                </p>
+              </div>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {[
+                  { icon: XCircle, text: "Free cancellation available", color: "text-nature" },
+                  { icon: Zap, text: "Instant booking on both platforms", color: "text-warm" },
+                  { icon: Lock, text: "Secure payment protection", color: "text-nature" },
+                  { icon: MessageCircle, text: "Direct communication with your host", color: "text-warm" },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-center gap-4 rounded-xl border border-border/40 bg-muted/20 p-5 transition-all duration-300 hover:bg-muted/40">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-nature/8">
+                      <item.icon className={`h-5 w-5 ${item.color}`} />
+                    </div>
+                    <span className="font-sans text-sm font-medium">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

@@ -13,6 +13,13 @@ import {
   Clock,
   BedDouble,
   Bath,
+  MessageSquare,
+  Navigation,
+  Mountain,
+  Plane,
+  Bike,
+  Footprints,
+  ExternalLink,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { LinkButton } from "@/components/link-button";
@@ -56,32 +63,71 @@ const features = [
   },
 ];
 
-const testimonials = [
+const reviews = [
   {
-    name: "Sarah M.",
-    location: "Atlanta, GA",
-    text: "An absolutely wonderful stay! The house is even more beautiful than the photos. The forest setting made us feel like we were in a nature retreat, yet downtown was just a short drive away.",
+    name: "Audrey",
+    location: "Scottsdale, AZ",
+    date: "December 2025",
     rating: 5,
+    excerpt:
+      "Loved the two-week stay in this safe, peaceful area. The beautiful back porch was a highlight.",
   },
   {
-    name: "James & Linda K.",
-    location: "Charlotte, NC",
-    text: "The attention to detail is remarkable. Everything was so well thought out. We felt so comfortable and at home. The hosts were incredibly responsive.",
+    name: "Rachael & Guy",
+    location: "Camden, ME",
+    date: "November 2025",
     rating: 5,
+    excerpt:
+      "Great location near shops and restaurants with clear instructions and a proactive host.",
   },
   {
-    name: "Michael R.",
-    location: "Nashville, TN",
-    text: "Perfect getaway. The porch overlooking the private forest was our favorite spot. We've already booked our next stay. Highly recommend for families!",
+    name: "Amanda",
+    location: "Greenville, SC",
+    date: "August 2025",
     rating: 5,
+    excerpt:
+      "Clean house with a sweet screened porch, perfect for an extended stay.",
+  },
+  {
+    name: "Tyler",
+    location: "Somerset, KY",
+    date: "May 2025",
+    rating: 5,
+    excerpt:
+      "Great location, very clean with comfortable beds and a wonderful screened porch.",
+  },
+  {
+    name: "Natalie",
+    location: "Saint Michael, MN",
+    date: "March 2025",
+    rating: 5,
+    excerpt:
+      "Perfect for family stays with comfortable dining chairs for family dinners together.",
+  },
+  {
+    name: "Sam",
+    location: "Catonsville, MD",
+    date: "January 2025",
+    rating: 5,
+    excerpt:
+      "Amazing stay with everything well-stocked and a very responsive host.",
   },
 ];
 
 const stats = [
-  { value: "35,000", label: "Sq Ft Private Land", icon: TreePine },
-  { value: "15", label: "Min to Downtown", icon: Clock },
-  { value: "5", label: "Star Reviews", icon: Star },
-  { value: "100%", label: "Superhost", icon: Shield },
+  { value: "4.86", label: "Guest Rating", icon: Star },
+  { value: "103+", label: "Reviews", icon: MessageSquare },
+  { value: "Super", label: "Host Status", icon: Shield },
+  { value: "15 min", label: "To Downtown", icon: Clock },
+];
+
+const nearbyPlaces = [
+  { name: "Falls Park & Liberty Bridge", distance: "15 min drive", icon: Footprints },
+  { name: "Swamp Rabbit Trail", distance: "10 min drive", icon: Bike },
+  { name: "Downtown Main Street", distance: "15 min drive", icon: Navigation },
+  { name: "GSP Airport", distance: "25 min drive", icon: Plane },
+  { name: "Paris Mountain State Park", distance: "20 min drive", icon: TreePine },
+  { name: "Blue Ridge Mountains", distance: "45 min drive", icon: Mountain },
 ];
 
 export default function HomePage() {
@@ -258,26 +304,51 @@ export default function HomePage() {
                 <br />
                 From Home
               </h2>
-              <p className="mt-6 font-sans text-muted-foreground leading-relaxed">
-                Set on 35,000 square feet of private forest land, our home
-                offers a unique combination of natural tranquility and modern
-                convenience. Wake up to birdsong, enjoy your coffee on the
-                porch surrounded by towering oaks, and explore vibrant downtown
-                Greenville just 15 minutes away.
-              </p>
+              <div className="mt-6 space-y-4 font-sans text-muted-foreground leading-relaxed">
+                <p>
+                  Imagine waking up to the soft sound of birds singing outside your
+                  window. You step onto the screened porch with a warm cup of coffee
+                  and look out at towering oak trees all around you. The morning air
+                  is cool and fresh. This is what it feels like to stay at B5 Homes.
+                </p>
+                <p>
+                  Our home sits on 35,000 square feet of private forest land in a
+                  quiet, safe neighborhood. You will feel like you are deep in the
+                  woods, but you are only 15 minutes from the heart of downtown
+                  Greenville. That means you can enjoy the best of both worlds —
+                  peaceful nature during the day and great restaurants, shops, and
+                  live music at night.
+                </p>
+                <p>
+                  The screened porch is the favorite spot for most of our guests.
+                  It is the perfect place to relax with a book, share a meal with
+                  your family, or simply watch the fireflies on a warm evening.
+                  Inside, you will find a clean, comfortable home with everything
+                  you need. The kitchen is fully stocked so you can cook your
+                  favorite meals. The beds have premium linens so you sleep well
+                  every night. And the living room is cozy and welcoming, with a
+                  fireplace and plenty of room for the whole family.
+                </p>
+                <p>
+                  Whether you are visiting Greenville for a weekend getaway, a
+                  family vacation, or an extended stay, B5 Homes is the kind of
+                  place that makes you feel right at home from the moment you
+                  walk in.
+                </p>
+              </div>
               <ul className="mt-10 space-y-4">
                 {[
-                  "3 spacious bedrooms with premium bedding",
-                  "2 full bathrooms, beautifully appointed",
-                  "Fully equipped modern kitchen",
-                  "Screened porch with forest views",
-                  "Free parking and high-speed Wi-Fi",
+                  "3 spacious bedrooms with soft, premium bedding for a great night's sleep",
+                  "2 full bathrooms, clean and beautifully appointed with fresh towels",
+                  "Fully equipped kitchen with everything you need to cook and enjoy meals",
+                  "Screened porch surrounded by forest — the perfect spot to unwind",
+                  "Free parking, high-speed Wi-Fi, and washer/dryer for your convenience",
                 ].map((item) => (
                   <li
                     key={item}
                     className="flex items-center gap-4 font-sans text-sm"
                   >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-nature/10">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-nature/10">
                       <span className="h-1.5 w-1.5 rounded-full bg-nature" />
                     </span>
                     <span className="text-muted-foreground">{item}</span>
@@ -317,8 +388,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interior Preview */}
+      {/* Google Maps / Location Section */}
       <section className="border-y border-border/50 bg-gradient-to-b from-muted/30 via-muted/10 to-transparent py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-warm">
+              Location
+            </p>
+            <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl lg:text-5xl">
+              Prime Location
+            </h2>
+            <p className="mt-5 font-sans text-muted-foreground leading-relaxed">
+              Close to everything Greenville has to offer
+            </p>
+          </div>
+          <div className="mt-16 overflow-hidden rounded-3xl shadow-2xl border border-border/50">
+            <iframe
+              src="https://maps.google.com/maps?q=34.8526,-82.394&z=13&output=embed"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="B5 Homes location on Google Maps"
+              className="w-full"
+            />
+          </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {nearbyPlaces.map((place) => (
+              <Card
+                key={place.name}
+                className="group border border-border/50 bg-card transition-all duration-300 hover:shadow-lg hover:shadow-nature/5"
+              >
+                <CardContent className="flex items-center gap-4 p-5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-nature/8 transition-colors duration-300 group-hover:bg-nature/15">
+                    <place.icon className="h-5 w-5 text-nature" />
+                  </div>
+                  <div>
+                    <p className="font-sans text-sm font-semibold">
+                      {place.name}
+                    </p>
+                    <p className="font-sans text-xs text-muted-foreground">
+                      {place.distance}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interior Preview */}
+      <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-warm">
@@ -357,8 +480,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 lg:py-32">
+      {/* Guest Reviews */}
+      <section className="border-y border-border/50 bg-gradient-to-b from-muted/30 via-muted/10 to-transparent py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-warm">
@@ -367,44 +490,69 @@ export default function HomePage() {
             <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl lg:text-5xl">
               What Our Guests Say
             </h2>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-warm/20 bg-warm/5 px-5 py-2">
+              <Star className="h-4 w-4 fill-gold text-gold" />
+              <span className="font-sans text-sm font-semibold">4.86</span>
+              <span className="font-sans text-sm text-muted-foreground">
+                from 103+ Reviews on{" "}
+                <a
+                  href="https://www.airbnb.de/h/b5homes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-warm underline underline-offset-2 hover:text-warm/80 transition-colors"
+                >
+                  Airbnb
+                </a>
+              </span>
+            </div>
           </div>
-          <div className="mt-20 grid gap-8 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((review) => (
               <Card
-                key={testimonial.name}
+                key={review.name}
                 className="group border border-border/50 bg-card transition-all duration-500 hover:shadow-xl hover:shadow-nature/5"
               >
-                <CardContent className="p-8">
-                  <Quote className="mb-6 h-10 w-10 text-nature/20" />
-                  <p className="font-sans text-[15px] leading-relaxed text-muted-foreground italic">
-                    &ldquo;{testimonial.text}&rdquo;
-                  </p>
-                  <div className="mt-8 flex items-center gap-1">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                <CardContent className="p-7">
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: review.rating }).map((_, i) => (
                       <Star
                         key={i}
-                        className="h-4 w-4 fill-gold text-gold"
+                        className="h-3.5 w-3.5 fill-gold text-gold"
                       />
                     ))}
                   </div>
-                  <div className="mt-4 flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-nature/10 flex items-center justify-center">
+                  <p className="mt-4 font-sans text-[15px] leading-relaxed text-muted-foreground">
+                    {review.excerpt}
+                  </p>
+                  <div className="mt-6 flex items-center gap-3">
+                    <div className="h-9 w-9 rounded-full bg-nature/10 flex items-center justify-center">
                       <span className="font-serif text-sm font-bold text-nature">
-                        {testimonial.name[0]}
+                        {review.name[0]}
                       </span>
                     </div>
                     <div>
                       <p className="font-sans text-sm font-semibold">
-                        {testimonial.name}
+                        {review.name}
                       </p>
                       <p className="font-sans text-xs text-muted-foreground">
-                        {testimonial.location}
+                        {review.location} &middot; {review.date}
                       </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <a
+              href="https://www.airbnb.de/h/b5homes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-warm px-6 py-3 font-sans font-medium text-white transition-all duration-300 hover:bg-warm/90 hover:shadow-lg"
+            >
+              Read All Reviews on Airbnb
+              <ExternalLink className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
