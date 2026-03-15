@@ -304,7 +304,7 @@ export default function HomePage() {
               className="w-full aspect-video"
               controls
               preload="metadata"
-              poster="/images/hero/aerial.jpg"
+              poster="/images/interior/porch.jpg"
             >
               <source src="/videos/property-tour.mp4" type="video/mp4" />
               Your browser does not support the video tag.
